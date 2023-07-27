@@ -5,9 +5,11 @@ name = "pypi"
 
 [packages]
 requests = "*"
-ics = "*"
 datetime = "*"
 arrow = "*"
+icalendar = "*"
+recurring-ical-events = "*"
+
 
 [dev-packages]
 
