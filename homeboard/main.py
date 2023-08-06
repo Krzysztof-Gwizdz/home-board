@@ -41,8 +41,11 @@ class HomeBoard:
         self.calendarModule = calendar.CalendarModule(self.settings["configuration"]["calendar"])
 
     def run(self):
-        #weatherData = self.weatherModule.getWeatherData()
-        #logger.info(f'Weather data for {weatherData.cityName} - {weatherData.weatherStatus} Temp: {weatherData.temperature}, Humidity: {weatherData.humidity}%')
+        weatherData = self.weatherModule.getWeatherData()
+        print(f'Weather data for {weatherData["cityName"]} - {weatherData["weatherStatus"]} Temp: {weatherData["temperature"]}, Humidity: {weatherData["humidity"]}%')
+        todayEvents = self.calendarModule.getTodaysEvents()
+        tomorrowEvents = self.calendarModule.getTomorrowsEvents()
+        nextDaysEvents = self.calendarModule.getEventsForFiveDays()
         return
 
     def loadSettings(self):

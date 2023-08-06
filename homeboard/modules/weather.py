@@ -34,15 +34,12 @@ class WeatherModule:
         except Exception as ex:
             logger.error(f'Exception occurred: {ex}')
         if jsonResponse:
-            result = WeatherData(jsonResponse["name"], jsonResponse["main"]["temp"], jsonResponse["main"]["pressure"], jsonResponse["main"]["humidity"], jsonResponse["wind"]["speed"], jsonResponse["wind"]["deg"], jsonResponse["weather"][0]["main"])
-            return result
-
-class WeatherData:
-    def __init__( self, cityName, temperature, pressure, humidity, windSpeed, windDirection, weatherStatus):
-        self.cityName = cityName
-        self.temperature = temperature
-        self.pressure = pressure
-        self.humidity = humidity
-        self.windSpeed = windSpeed
-        self.windDirection = windDirection
-        self.weatherStatus = weatherStatus
+            return {
+                'cityName': jsonResponse["name"],
+                'temperature': jsonResponse["main"]["temp"],
+                'pressure': jsonResponse["main"]["pressure"],
+                'humidity': jsonResponse["main"]["humidity"],
+                'windSpeed': jsonResponse["wind"]["speed"],
+                'windDirection': jsonResponse["wind"]["deg"],
+                'weatherStatus': jsonResponse["weather"][0]["main"]
+            }
