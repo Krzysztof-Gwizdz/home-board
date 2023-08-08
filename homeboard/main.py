@@ -5,6 +5,8 @@ from logging.handlers import RotatingFileHandler
 
 from homeboard.modules import weather
 from homeboard.modules import calendar
+from homeboard.modules import dashboard_image
+# from homeboard.modules import display
 
 streamHandler = logging.StreamHandler()
 streamHandler.setLevel(logging.ERROR)
@@ -39,13 +41,18 @@ class HomeBoard:
         self.loadSettings()
         self.weatherModule = weather.WeatherModule(self.settings["configuration"]["weather"])
         self.calendarModule = calendar.CalendarModule(self.settings["configuration"]["calendar"])
+        self.imageModule = dashboard_image.ImageModule(self.settings["configuration"]["image"])
+        # self.displayModule = display.DisplayModule(self.settings["configuration"]["display"])
 
     def run(self):
         weatherData = self.weatherModule.getWeatherData()
-        print(f'Weather data for {weatherData["cityName"]} - {weatherData["weatherStatus"]} Temp: {weatherData["temperature"]}, Humidity: {weatherData["humidity"]}%')
+        # print(f'Weather data for {weatherData["cityName"]} - {weatherData["weatherStatus"]} Temp: {weatherData["temperature"]}, Humidity: {weatherData["humidity"]}%')
         todayEvents = self.calendarModule.getTodaysEvents()
         tomorrowEvents = self.calendarModule.getTomorrowsEvents()
         nextDaysEvents = self.calendarModule.getEventsForFiveDays()
+        self.imageModule.testImage(todayEvents, tomorrowEvents, nextDaysEvents, weatherData)
+        # self.displayModule.displayImage(self.imageModule.renderDashboardImage(todayEvents, tomorrowEvents, nextDaysEvents, weatherData))
+
         return
 
     def loadSettings(self):

@@ -28,7 +28,7 @@ class CalendarModule:
         recurringEvents = ((calendar.name, recurring_ical_events.of(calendar.calendar).between(tStart, tEnd)) for calendar in self.icalendars)
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
-        print(f'Today\'s events:\n{str(sortedEvents[0:count])}')
+        # print(f'Today\'s events:\n{str(sortedEvents[0:count])}')
         return sortedEvents[0:count]
 
     def getTomorrowsEvents(self, count=5):
@@ -40,7 +40,7 @@ class CalendarModule:
         recurringEvents = ((calendar.name, recurring_ical_events.of(calendar.calendar).between(tStart, tEnd)) for calendar in self.icalendars)
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
-        print(f'Tomorrow\'s events:\n{str(sortedEvents[0:count])}')
+        # print(f'Tomorrow\'s events:\n{str(sortedEvents[0:count])}')
         return sortedEvents[0:count]
 
     def getEventsForFiveDays(self, count=5):
@@ -52,7 +52,7 @@ class CalendarModule:
         recurringEvents = ((calendar.name, recurring_ical_events.of(calendar.calendar).between(tStart, tEnd)) for calendar in self.icalendars)
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
-        print(f'Next five day\'s events:\n{str(sortedEvents[0:count])}')
+        # print(f'Next five day\'s events:\n{str(sortedEvents[0:count])}')
         return sortedEvents[0:count]
 
     def __convertToEventList(self, recurringEvents):

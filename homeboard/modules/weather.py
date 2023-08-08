@@ -41,5 +41,5 @@ class WeatherModule:
                 'humidity': jsonResponse["main"]["humidity"],
                 'windSpeed': jsonResponse["wind"]["speed"],
                 'windDirection': jsonResponse["wind"]["deg"],
-                'weatherStatus': jsonResponse["weather"][0]["main"]
+                'weatherStatus': jsonResponse["weather"][0]["icon"]
             }
