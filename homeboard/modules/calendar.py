@@ -29,7 +29,10 @@ class CalendarModule:
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
         # print(f'Today\'s events:\n{str(sortedEvents[0:count])}')
-        return sortedEvents[0:count]
+        if sortedEvents:
+            return sortedEvents[0:count]
+        else:
+            return None
 
     def getTomorrowsEvents(self, count=5):
         startTimeline = arrow.utcnow().shift(days = 1)
@@ -41,7 +44,10 @@ class CalendarModule:
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
         # print(f'Tomorrow\'s events:\n{str(sortedEvents[0:count])}')
-        return sortedEvents[0:count]
+        if sortedEvents:
+            return sortedEvents[0:count]
+        else:
+            return None
 
     def getEventsForFiveDays(self, count=5):
         startTimeline = arrow.utcnow().shift(days = 2)
@@ -53,7 +59,10 @@ class CalendarModule:
         events = self.__convertToEventList(recurringEvents)
         sortedEvents = CalendarModule.sortEvents(events)
         # print(f'Next five day\'s events:\n{str(sortedEvents[0:count])}')
-        return sortedEvents[0:count]
+        if sortedEvents:
+            return sortedEvents[0:count]
+        else:
+            return None
 
     def __convertToEventList(self, recurringEvents):
         return list(

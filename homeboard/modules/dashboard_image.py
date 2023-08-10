@@ -109,34 +109,37 @@ class ImageModule:
 
         #Today
         draw.text((205,65), "Dzisiaj", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(todayEvents):
-            draw.text((205,(97 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((650,(97 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(97 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(97 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+        if todayEvents:
+            for idx, event in enumerate(todayEvents):
+                draw.text((205,(97 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((650,(97 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(97 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(97 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
 
         #Tomorrow
         draw.text((205, 205), "Jutro", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(tomorrowEvents):
-            draw.text((205,(236 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((650,(236 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(236 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(236 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+        if tomorrowEvents:
+            for idx, event in enumerate(tomorrowEvents):
+                draw.text((205,(236 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((650,(236 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(236 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(236 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
 
         #Next 5 days
         draw.text((205, 345), "Następne 5 dni", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(nextDaysEvents):
-            draw.text((205,(379 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((600,(379 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            draw.text((650,(379 + idx * 19)), event['begin'].format("DD.MM"), font=FONT_LATO)
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(379 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(379 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+        if nextDaysEvents:
+            for idx, event in enumerate(nextDaysEvents):
+                draw.text((205,(379 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((600,(379 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                draw.text((650,(379 + idx * 19)), event['begin'].format("DD.MM"), font=FONT_LATO)
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(379 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(379 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
         logger.info(f'Rendered image size: {image.size}')
         return image
 
@@ -182,33 +185,36 @@ class ImageModule:
 
         #Today
         draw.text((205,65), "Dzisiaj", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(todayEvents):
-            draw.text((205,(97 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((650,(97 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(97 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(97 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+        if todayEvents:
+            for idx, event in enumerate(todayEvents):
+                draw.text((205,(97 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((650,(97 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(97 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(97 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
 
         #Tomorrow
         draw.text((205, 205), "Jutro", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(tomorrowEvents):
-            draw.text((205,(236 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((650,(236 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(236 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(236 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+        if tomorrowEvents:
+            for idx, event in enumerate(tomorrowEvents):
+                draw.text((205,(236 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((650,(236 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(236 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(236 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
 
         #Next 5 days
         draw.text((205, 345), "Następne 5 dni", font=FONT_LATO_BOLD)
-        for idx, event in enumerate(nextDaysEvents):
-            draw.text((205,(379 + idx * 19)), event['title'], font=FONT_LATO)
-            draw.text((600,(379 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
-            draw.text((650,(379 + idx * 19)), event['begin'].format("DD.MM"), font=FONT_LATO)
-            if calendar.CalendarModule.isEventAllDay(event):
-                draw.text((750,(379 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
-            else:
-                draw.text((750,(379 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
-        logger.info(f'Rendered image size: {image.size}')
-        image.save(testFile)
+        if nextDaysEvents:
+            for idx, event in enumerate(nextDaysEvents):
+                draw.text((205,(379 + idx * 19)), event['title'], font=FONT_LATO)
+                draw.text((600,(379 + idx * 19)), event['owner'], font=FONT_LATO, anchor="ma")
+                draw.text((650,(379 + idx * 19)), event['begin'].format("DD.MM"), font=FONT_LATO)
+                if calendar.CalendarModule.isEventAllDay(event):
+                    draw.text((750,(379 + idx * 19)), "cały dzień", font=FONT_LATO, anchor="ma")
+                else:
+                    draw.text((750,(379 + idx * 19)), f'{event["begin"].format("HH:mm")} - {event["end"].format("HH:mm")}', font=FONT_LATO, anchor="ma")
+            logger.info(f'Rendered image size: {image.size}')
+            image.save(testFile)
